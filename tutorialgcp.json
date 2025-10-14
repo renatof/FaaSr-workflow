@@ -2,7 +2,7 @@
   "ActionList": {
     "start": {
       "Arguments": {
-        "folder": "tutorialGCP",
+        "folder": "tutorialgcp",
         "output1": "sample1.csv",
         "output2": "sample2.csv"
       },
@@ -18,7 +18,7 @@
       "FaaSServer": "GCP",
       "Type": "R",
       "Arguments": {
-        "folder": "tutorialGCP",
+        "folder": "tutorialgcp",
         "input2": "sample2.csv",
         "input1": "sample1.csv",
         "output": "sum.csv"
@@ -59,6 +59,6 @@
   },
   "LoggingDataStore": "S3",
   "FaaSrLog": "FaaSrLog",
-  "InvocationID": "tutorialGCP",
-  "WorkflowName": "tutorialGCP"
+  "InvocationID": "tutorialgcp",
+  "WorkflowName": "tutorialgcp"
 }
