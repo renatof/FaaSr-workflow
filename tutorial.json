@@ -1,0 +1,58 @@
+{
+  "ActionList": {
+    "start": {
+      "Arguments": {
+        "folder": "tutorial",
+        "output1": "sample1.csv",
+        "output2": "sample2.csv"
+      },
+      "InvokeNext": [
+        "sum"
+      ],
+      "FaaSServer": "GH",
+      "Type": "R",
+      "FunctionName": "create_sample_data"
+    },
+    "sum": {
+      "FunctionName": "compute_sum_arrow",
+      "FaaSServer": "GH",
+      "Type": "R",
+      "Arguments": {
+        "folder": "tutorial",
+        "input2": "sample2.csv",
+        "input1": "sample1.csv",
+        "output": "sum.csv"
+      },
+      "InvokeNext": []
+    }
+  },
+  "ComputeServers": {
+    "GH": {
+      "FaaSType": "GitHubActions",
+      "UserName": "renatof",
+      "UseSecretStore": true,
+      "ActionRepoName": "FaaSr-workflow",
+      "Branch": "main"
+    }
+  },
+  "DataStores": {
+    "My_S3_Bucket": {
+      "Endpoint": "https://play.min.io",
+      "Bucket": "faasr",
+      "Region": "us-east-1"
+    }
+  },
+  "ActionContainers": {
+    "start": "ghcr.io/faasr/github-actions-r:latest",
+    "sum": "ghcr.io/faasr/github-actions-r:latest"
+  },
+  "FunctionInvoke": "start",
+  "DefaultDataStore": "S3",
+  "FunctionGitRepo": {
+    "create_sample_data": "FaaSr/FaaSr-Functions",
+    "compute_sum_arrow": "FaaSr/FaaSr-Functions"
+  },
+  "LoggingDataStore": "S3",
+  "FaaSrLog": "FaaSrLog",
+  "WorkflowName": "tutorial"
+}
