@@ -14,7 +14,7 @@
       "FunctionName": "create_sample_data"
     },
     "sum": {
-      "FunctionName": "compute_sum_arrow",
+      "FunctionName": "compute_sum",
       "FaaSServer": "GH",
       "Type": "R",
       "Arguments": {
@@ -54,5 +54,6 @@
   },
   "LoggingDataStore": "S3",
   "FaaSrLog": "FaaSrLog",
+  "InvocationID": "tutorial",
   "WorkflowName": "tutorial"
 }
