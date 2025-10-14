@@ -1,0 +1,10 @@
+faasr/openwhisk-python:latest
+faasr/gcp-python:latest
+faasr/slurm-python:latest
+faasr/openwhisk-r:latest
+faasr/gcp-r:latest
+faasr/slurm-r:latest
+ghcr.io/faasr/github-actions-python:latest
+ghcr.io/faasr/github-actions-r:latest
+145342739029.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-python:latest
+145342739029.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-r:latest

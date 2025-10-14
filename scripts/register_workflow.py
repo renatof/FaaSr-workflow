@@ -54,7 +54,7 @@ def verify_containers(workflow_data):
         return
 
     # Get set of native containers
-    with open("native_containers.txt", "r") as f:
+    with open("scripts/native_containers.txt", "r") as f:
         native_containers = {line.strip() for line in f.readlines()}
 
     for container in workflow_data.get("ActionContainers", {}).values():
