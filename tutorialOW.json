@@ -32,8 +32,7 @@
       "Namespace": "guest",
       "UseSecretStore": false,
       "Endpoint": "ow.faasr.io:31002",
-      "API.key": "filler:filler",
-      "NameSpace": "guest"
+      "API.key": "filler:filler"
     },
     "GH": {
       "FaaSType": "GitHubActions",
