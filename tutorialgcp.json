@@ -48,8 +48,8 @@
     }
   },
   "ActionContainers": {
-    "start": "faasr/gcp-r:latest",
-    "sum": "faasr/gcp-r:latest"
+    "start": "ramrakha/gcp-r:dev4",
+    "sum": "ramrakha/gcp-r:dev4"
   },
   "FunctionInvoke": "start",
   "DefaultDataStore": "S3",
