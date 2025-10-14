@@ -17,8 +17,8 @@ jobs:
 
         env:
             GH_PAT: ${{ secrets.GH_PAT}}
-            My_S3_Bucket_AccessKey: ${{ secrets.My_S3_Bucket_AccessKey}}
-            My_S3_Bucket_SecretKey: ${{ secrets.My_S3_Bucket_SecretKey}}
+            S3_AccessKey: ${{ secrets.S3_AccessKey}}
+            S3_SecretKey: ${{ secrets.S3_SecretKey}}
             OVERWRITTEN: ${{ github.event.inputs.OVERWRITTEN }}
             PAYLOAD_URL: ${{ github.event.inputs.PAYLOAD_URL }}
 
