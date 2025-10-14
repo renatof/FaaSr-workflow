@@ -26,23 +26,24 @@
       "InvokeNext": []
     }
   },
-    "ComputeServers": {
-        "OW": {
-            "FaaSType": "OpenWhisk",
-            "Namespace": "guest",
-            "UseSecretStore": false,
-            "Endpoint": "ow.faasr.io:31002",
-            "API.key": "filler:filler"
-        },
-        "GH": {
-            "FaaSType": "GitHubActions",
-            "UserName": "renatof",
-            "UseSecretStore": true,
-            "ActionRepoName": "FaaSr-workflow",
-            "Branch": "main"
-        }
+  "ComputeServers": {
+    "OW": {
+      "FaaSType": "OpenWhisk",
+      "Namespace": "guest",
+      "UseSecretStore": false,
+      "Endpoint": "ow.faasr.io:31002",
+      "API.key": "filler:filler",
+      "NameSpace": "guest"
     },
-   "DataStores": {
+    "GH": {
+      "FaaSType": "GitHubActions",
+      "UserName": "renatof",
+      "UseSecretStore": true,
+      "ActionRepoName": "FaaSr-workflow",
+      "Branch": "main"
+    }
+  },
+  "DataStores": {
     "S3": {
       "Endpoint": "https://play.min.io",
       "Bucket": "faasr",
@@ -56,8 +57,8 @@
   "FunctionInvoke": "start",
   "DefaultDataStore": "S3",
   "FunctionGitRepo": {
-    "create_sample_data": "FaaSr/FaaSr-tutorial",
-    "compute_sum": "FaaSr/FaaSr-tutorial"
+    "create_sample_data": "FaaSr/FaaSr-Functions",
+    "compute_sum": "FaaSr/FaaSr-Functions"
   },
   "LoggingDataStore": "S3",
   "FaaSrLog": "FaaSrLog",
