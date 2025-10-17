@@ -46,6 +46,7 @@ jobs:
           OW_APIkey: ${{ secrets.OW_APIkey }}
           AWS_AccessKey: ${{ secrets.AWS_AccessKey }}
           AWS_SecretKey: ${{ secrets.AWS_SecretKey }}
+          AWS_ARN: $((secrets.AWS_ARN))
           GCP_SecretKey: ${{ secrets.GCP_SecretKey }}	
           SLURM_Token: ${{ secrets.SLURM_Token }}
           GH_PAT: ${{ secrets.GH_PAT }}
