@@ -1,0 +1,29 @@
+name: tutorialLarger-start
+
+on:
+    workflow_dispatch:
+        inputs:
+            OVERWRITTEN:
+                description: "Overwritten fields"
+                required: true
+            PAYLOAD_URL:
+                description: "URL to payload"
+                required: true
+
+jobs:
+    run_docker_image:
+        runs-on: ubuntu-latest
+        container: ghcr.io/faasr/github-actions-r:latest
+
+        env:
+            GH_PAT: ${{ secrets.GH_PAT}}
+            S3_AccessKey: ${{ secrets.S3_AccessKey}}
+            S3_SecretKey: ${{ secrets.S3_SecretKey}}
+            OVERWRITTEN: ${{ github.event.inputs.OVERWRITTEN }}
+            PAYLOAD_URL: ${{ github.event.inputs.PAYLOAD_URL }}
+
+        steps:
+          - name: Run Python entrypoint
+            run: |
+                cd /action
+                python3 faasr_entry.py
