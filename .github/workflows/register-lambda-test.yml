@@ -1,0 +1,55 @@
+name: '  (FAASR LAMBDA)'
+
+on:
+  workflow_dispatch:
+    inputs:
+      workflow_file:
+        description: 'Workflow JSON file name'
+        required: true
+        type: string
+      custom_container:
+        description: 'Custom containers'
+        type: boolean
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install boto3 pyyaml PyGithub requests FaaSr_py
+
+      - name: Install OpenWhisk CLI
+        run: |
+          # Download and install the latest OpenWhisk CLI for Linux
+          wget -q https://github.com/apache/openwhisk-cli/releases/download/1.2.0/OpenWhisk_CLI-1.2.0-linux-amd64.tgz
+          tar -xzf OpenWhisk_CLI-1.2.0-linux-amd64.tgz
+          sudo mv wsk /usr/local/bin/wsk
+          sudo chmod +x /usr/local/bin/wsk
+          # Verify installation
+          wsk --help
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v1
+
+      - name: Register Functions
+        env:
+          CUSTOM_CONTAINER: ${{ github.event.inputs.custom_container }}
+          OW_APIkey: ${{ secrets.OW_APIkey }}
+          AWS_AccessKey: ${{ secrets.AWS_AccessKey }}
+          AWS_SecretKey: ${{ secrets.AWS_SecretKey }}
+          AWS_ARN: ${{ secrets.AWS_ARN }}
+          GCP_SecretKey: ${{ secrets.GCP_SecretKey }}	
+          SLURM_Token: ${{ secrets.SLURM_Token }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          # Run function registration 
+          python scripts/register_workflow_lambda.py --workflow-file ${{ github.event.inputs.workflow_file }} 
