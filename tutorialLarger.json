@@ -26,7 +26,7 @@
         "output": "sum.csv"
       },
       "InvokeNext": [
-        "sumPy"
+        "sumFinal"
       ]
     },
     "mult": {
@@ -67,11 +67,11 @@
         "output": "sum2.csv"
       },
       "InvokeNext": [
-        "sumPy"
+        "sumFinal"
       ],
       "Type": "R"
     },
-    "sumPy": {
+    "sumFinal": {
       "FunctionName": "compute_sum",
       "FaaSServer": "GH",
       "Arguments": {
@@ -81,13 +81,13 @@
         "output": "finalsum.csv"
       },
       "InvokeNext": [],
-      "Type": "Python"
+      "Type": "R"
     }
   },
   "ComputeServers": {
     "GH": {
       "FaaSType": "GitHubActions",
-      "UserName": "renatof",
+      "UserName": "YOUR_USERNAME",
       "UseSecretStore": true,
       "ActionRepoName": "FaaSr-workflow",
       "Branch": "main"
@@ -106,7 +106,8 @@
     "mult": "ghcr.io/faasr/github-actions-r:latest",
     "div": "ghcr.io/faasr/github-actions-r:latest",
     "sumArrow": "ghcr.io/faasr/github-actions-r:latest",
-    "sumPy": "ghcr.io/faasr/github-actions-python:latest"
+    "sumPy": "ghcr.io/faasr/github-actions-python:latest",
+    "sumFinal": "ghcr.io/faasr/github-actions-r:latest"
   },
   "FunctionInvoke": "start",
   "DefaultDataStore": "S3",
