@@ -343,7 +343,13 @@ def get_lambda_credentials(workflow_data):
         logger.warning("AWS region not specified, defaulting to us-east-1")
         aws_region = "us-east-1"
 
-    return (aws_access_key, aws_secret_key, aws_region)
+    aws_arn = os.getenv("AWS_ARN")
+
+    if not aws_arn:
+        logger.error("AWS ARN not specified; AWS registration will fail")
+        sys.exit(1)
+
+    return (aws_access_key, aws_secret_key, aws_region, aws_arn)
 
 
 def deploy_to_aws(workflow_data):
@@ -369,7 +375,7 @@ def deploy_to_aws(workflow_data):
         sys.exit(1)
 
     # Get AWS credentials
-    aws_access_key, aws_secret_key, aws_region = get_lambda_credentials(workflow_data)
+    aws_access_key, aws_secret_key, aws_region, aws_arn = get_lambda_credentials(workflow_data)
 
     lambda_client = boto3.client(
         "lambda",
@@ -377,11 +383,6 @@ def deploy_to_aws(workflow_data):
         aws_secret_access_key=aws_secret_key,
         region_name=aws_region,
     )
-    try:
-        aws_arn = lambda_client.get_role()["User"]["Arn"]
-    except boto3.exceptions.Boto3Error as e:
-        logger.error(f"Error fetching AWS IAM user ARN: {str(e)}")
-        sys.exit(1)
 
     # Process each action in the workflow
     for action_name, action_data in lambda_actions.items():
