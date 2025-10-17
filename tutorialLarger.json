@@ -1,0 +1,124 @@
+{
+  "ActionList": {
+    "start": {
+      "Arguments": {
+        "folder": "tutorialLarger",
+        "output1": "sample1.csv",
+        "output2": "sample2.csv"
+      },
+      "InvokeNext": [
+        "sum",
+        "mult",
+        "div"
+      ],
+      "FaaSServer": "GH",
+      "Type": "R",
+      "FunctionName": "create_sample_data"
+    },
+    "sum": {
+      "FunctionName": "compute_sum",
+      "FaaSServer": "GH",
+      "Type": "R",
+      "Arguments": {
+        "folder": "tutorialLarger",
+        "input2": "sample1.csv",
+        "input1": "sample2.csv",
+        "output": "sum.csv"
+      },
+      "InvokeNext": [
+        "sumPy"
+      ]
+    },
+    "mult": {
+      "FunctionName": "compute_mult",
+      "FaaSServer": "GH",
+      "Arguments": {
+        "folder": "tutorialLarger",
+        "input2": "sample2.csv",
+        "input1": "sample1.csv",
+        "output": "mult.csv"
+      },
+      "InvokeNext": [
+        "sumArrow"
+      ],
+      "Type": "R"
+    },
+    "div": {
+      "FunctionName": "compute_div",
+      "FaaSServer": "GH",
+      "Arguments": {
+        "folder": "tutorialLarger",
+        "input2": "sample2.csv",
+        "input1": "sample1.csv",
+        "output": "div.csv"
+      },
+      "InvokeNext": [
+        "sumArrow"
+      ],
+      "Type": "R"
+    },
+    "sumArrow": {
+      "FunctionName": "compute_sum_arrow",
+      "FaaSServer": "GH",
+      "Arguments": {
+        "folder": "tutorialLarger",
+        "input2": "mult.csv",
+        "input1": "div.csv",
+        "output": "sum2.csv"
+      },
+      "InvokeNext": [
+        "sumPy"
+      ],
+      "Type": "R"
+    },
+    "sumPy": {
+      "FunctionName": "compute_sum",
+      "FaaSServer": "GH",
+      "Arguments": {
+        "folder": "tutorialLarger",
+        "input2": "sum2.csv",
+        "input1": "sum.csv",
+        "output": "finalsum.csv"
+      },
+      "InvokeNext": [],
+      "Type": "Python"
+    }
+  },
+  "ComputeServers": {
+    "GH": {
+      "FaaSType": "GitHubActions",
+      "UserName": "YOUR_USERNAME",
+      "UseSecretStore": true,
+      "ActionRepoName": "FaaSr-workflow",
+      "Branch": "main"
+    }
+  },
+  "DataStores": {
+    "S3": {
+      "Endpoint": "https://play.min.io",
+      "Bucket": "faasr",
+      "Region": "us-east-1"
+    }
+  },
+  "ActionContainers": {
+    "start": "ghcr.io/faasr/github-actions-r:latest",
+    "sum": "ghcr.io/faasr/github-actions-r:latest",
+    "mult": "ghcr.io/faasr/github-actions-r:latest",
+    "div": "ghcr.io/faasr/github-actions-r:latest",
+    "sumArrow": "ghcr.io/faasr/github-actions-r:latest",
+    "sumPy": "ghcr.io/faasr/github-actions-python:latest"
+  },
+  "FunctionInvoke": "start",
+  "DefaultDataStore": "S3",
+  "FunctionGitRepo": {
+    "create_sample_data": "FaaSr/FaaSr-Functions",
+    "compute_sum": "FaaSr/FaaSr-Functions",
+    "compute_mult": "FaaSr/FaaSr-Functions",
+    "compute_div": "FaaSr/FaaSr-Functions",
+    "compute_sum_arrow": "FaaSr/FaaSr-Functions"
+  },
+  "LoggingDataStore": "S3",
+  "FaaSrLog": "FaaSrLog",
+  "InvocationID": "tutorial",
+  "WorkflowName": "tutorialLarger"
+}
