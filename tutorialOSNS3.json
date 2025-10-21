@@ -44,8 +44,8 @@
     }
   },
   "ActionContainers": {
-    "start": "ghcr.io/ashish-ramrakhiani/github-actions-r:2.0",
-    "sum": "ghcr.io/ashish-ramrakhiani/github-actions-r:2.0"
+    "start": "ghcr.io/faasr/github-actions-r:2.0.2",
+    "sum": "ghcr.io/faasr/github-actions-r:2.0.2"
   },
   "FunctionInvoke": "start",
   "DefaultDataStore": "OSNS3",
