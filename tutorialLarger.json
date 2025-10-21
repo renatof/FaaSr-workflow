@@ -120,6 +120,6 @@
   },
   "LoggingDataStore": "S3",
   "FaaSrLog": "FaaSrLog",
-  "InvocationID": "tutorial",
-  "WorkflowName": "tutorialLarger"
+  "WorkflowName": "tutorialLarger",
+  "InvocationIDFromDate": "%Y%m%d"
 }
