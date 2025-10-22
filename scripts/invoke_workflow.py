@@ -57,8 +57,8 @@ def add_secrets_to_server_attributes(server, faas_type):
                 )
                 sys.exit(1)
 
-            server["AWS_AccessKey"] = aws_access_key
-            server["AWS_SecretKey"] = aws_secret_key
+            server["AccessKey"] = aws_access_key
+            server["SecretKey"] = aws_secret_key
 
         case "OpenWhisk":
             ow_api_key = os.getenv("OW_APIkey")
