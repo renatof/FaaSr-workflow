@@ -37,7 +37,7 @@
   "ComputeServers": {
     "GH": {
       "FaaSType": "GitHubActions",
-      "UserName": "YOUR_USERNAME",
+      "UserName": "renatof",
       "UseSecretStore": true,
       "ActionRepoName": "FaaSr-workflow",
       "Branch": "main"
