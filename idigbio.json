@@ -1,0 +1,42 @@
+{
+  "ActionList": {
+    "start": {
+      "Arguments": {
+        "folder": "idigbio",
+        "genus": "acer"
+      },
+      "InvokeNext": [],
+      "FaaSServer": "GH",
+      "Type": "R",
+      "FunctionName": "idigbio_media_download"
+    }
+  },
+  "ComputeServers": {
+    "GH": {
+      "FaaSType": "GitHubActions",
+      "UseSecretStore": true,
+      "ActionRepoName": "FaaSr-workflow",
+      "Branch": "main",
+      "UserName": "YOUR_USERNAME"
+    }
+  },
+  "DataStores": {
+    "S3": {
+      "Writable": "TRUE",
+      "Endpoint": "https://play.min.io",
+      "Bucket": "faasr",
+      "Region": "us-east-1"
+    }
+  },
+  "ActionContainers": {
+    "start": "ghcr.io/faasr/github-actions-r:latest"
+  },
+  "FunctionInvoke": "start",
+  "DefaultDataStore": "S3",
+  "FunctionGitRepo": {
+    "idigbio_media_download": "FaaSr/FaaSr-Functions"
+  },
+  "FaaSrLog": "FaaSrLog",
+  "LoggingDataStore": "S3",
+  "WorkflowName": "idigbio"
+}
