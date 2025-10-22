@@ -5,10 +5,18 @@
         "folder": "idigbio",
         "genus": "acer"
       },
-      "InvokeNext": [],
+      "InvokeNext": [
+        "null"
+      ],
       "FaaSServer": "GH",
       "Type": "R",
       "FunctionName": "idigbio_media_download"
+    },
+    "null": {
+      "InvokeNext": [],
+      "FaaSServer": "GH",
+      "Type": "R",
+      "FunctionName": "nullstart"
     }
   },
   "ComputeServers": {
@@ -17,7 +25,7 @@
       "UseSecretStore": true,
       "ActionRepoName": "FaaSr-workflow",
       "Branch": "main",
-      "UserName": "renatof"
+      "UserName": "YOUR_USERNAME"
     }
   },
   "DataStores": {
@@ -29,12 +37,14 @@
     }
   },
   "ActionContainers": {
-    "start": "ghcr.io/faasr/github-actions-r:latest"
+    "start": "ghcr.io/faasr/github-actions-r:latest",
+    "null": "ghcr.io/faasr/github-actions-r:latest"
   },
   "FunctionInvoke": "start",
   "DefaultDataStore": "S3",
   "FunctionGitRepo": {
-    "idigbio_media_download": "FaaSr/FaaSr-Functions"
+    "idigbio_media_download": "FaaSr/FaaSr-Functions",
+    "nullstart": "FaaSr/FaaSr-Functions"
   },
   "FaaSrLog": "FaaSrLog",
   "LoggingDataStore": "S3",
