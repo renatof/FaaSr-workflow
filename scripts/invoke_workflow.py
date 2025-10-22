@@ -36,7 +36,7 @@ def get_workflow_file():
 
 def add_secrets_to_server_attributes(server, faas_type):
     """Adds secrets to compute server based on FaaS type"""
-    
+
     match faas_type:
         case "GitHubActions":
             token = os.getenv("GH_PAT")
@@ -98,7 +98,7 @@ def add_secrets_to_server_attributes(server, faas_type):
 
 def main():
     """Function invocation script"""
-    
+
     workflow_path = get_workflow_file()
 
     github_repo = os.getenv("GITHUB_REPOSITORY")
@@ -119,24 +119,24 @@ def main():
         sys.exit(1)
 
     workflow_name = workflow.get("WorkflowName")
-    
+
     if not workflow_name:
         logger.error("WorkflowName not found in payload")
         sys.exit(1)
 
     entry_action_name = workflow.get("FunctionInvoke")
-    
+
     if not entry_action_name:
         logger.error("FunctionInvoke not found in payload")
         sys.exit(1)
 
     try:
         server_name = workflow["ActionList"][entry_action_name]["FaaSServer"]
-        
+
         server = workflow["ComputeServers"][server_name]
-        
+
         faas_type = server["FaaSType"]
-        
+
         use_secret_store = server.get("UseSecretStore", False)
     except KeyError as e:
         sys.exit(1)
@@ -157,6 +157,7 @@ def main():
     except Exception as e:
         logger.error(f"Trigger failed: {e}")
         sys.exit(1)
-        
+
+
 if __name__ == "__main__":
     main()
