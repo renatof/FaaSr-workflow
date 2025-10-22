@@ -16,7 +16,7 @@
     "sum": {
       "FunctionName": "compute_sum",
       "FaaSServer": "OW",
-      "Type": "R",
+      "Type": "Python",
       "Arguments": {
         "folder": "tutorialOW",
         "input2": "sample2.csv",
@@ -51,7 +51,7 @@
   },
   "ActionContainers": {
     "start": "ghcr.io/faasr/github-actions-r:latest",
-    "sum": "faasr/openwhisk-r:latest"
+    "sum": "faasr/openwhisk-python:latest"
   },
   "FunctionInvoke": "start",
   "DefaultDataStore": "S3",
