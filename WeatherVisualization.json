@@ -104,9 +104,9 @@
   "FunctionInvoke": "GetData",
   "DefaultDataStore": "S3",
   "FunctionGitRepo": {
-    "get_ghcnd_data": "JStover95/FaaSr-Functions/weather_visualization/python",
-    "compare_to_yearly_average": "JStover95/FaaSr-Functions/weather_visualization/python",
-    "plot_weather_comparison": "JStover95/FaaSr-Functions/weather_visualization/python"
+    "get_ghcnd_data": "FaaSr/FaaSr-Functions/weather_visualization/python",
+    "compare_to_yearly_average": "FaaSr/FaaSr-Functions/weather_visualization/python",
+    "plot_weather_comparison": "FaaSr/FaaSr-Functions/weather_visualization/python"
   },
   "PyPIPackageDownloads": {
     "compare_to_yearly_average": [
