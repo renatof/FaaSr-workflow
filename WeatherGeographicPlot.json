@@ -45,11 +45,11 @@
     }
   },
   "DataStores": {
-    "S3": {
-      "Writable": "TRUE",
-      "Endpoint": "https://play.min.io",
-      "Bucket": "faasr",
-      "Region": "us-east-1"
+    "OSNS3": {
+      "Endpoint": "https://amnh1.osn.mghpcc.org",
+      "Bucket": "deb170011-flare",
+      "Region": "us-east-1",
+      "Writable": "TRUE"
     }
   },
   "ActionContainers": {
@@ -58,7 +58,7 @@
     "PlotData": "ghcr.io/faasr/github-actions-python:latest"
   },
   "FunctionInvoke": "GetData",
-  "DefaultDataStore": "S3",
+  "DefaultDataStore": "OSNS3",
   "FunctionGitRepo": {
     "get_geo_data_and_stations": "FaaSr/FaaSr-Functions/WeatherGeographicPlot/python",
     "process_ghcnd_data": "FaaSr/FaaSr-Functions/WeatherGeographicPlot/python",
@@ -79,7 +79,7 @@
     ]
   },
   "FaaSrLog": "FaaSrLog",
-  "LoggingDataStore": "S3",
+  "LoggingDataStore": "OSNS3",
   "WorkflowName": "WeatherGeographicPlot",
   "InvocationIDFromDate": "%Y-%m-%d-%H-%M-%S"
 }
