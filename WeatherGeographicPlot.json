@@ -41,7 +41,7 @@
       "UseSecretStore": true,
       "ActionRepoName": "FaaSr-workflow",
       "Branch": "main",
-      "UserName": "YOUR_USERNAME"
+      "UserName": "renatof"
     }
   },
   "DataStores": {
