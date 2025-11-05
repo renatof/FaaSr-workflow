@@ -1,0 +1,85 @@
+{
+  "ActionList": {
+    "GetData": {
+      "Arguments": {
+        "folder_name": "WeatherGeographicPlot",
+        "state_name": "Oregon",
+        "county_name": "Benton"
+      },
+      "InvokeNext": [
+        "ProcessData"
+      ],
+      "FaaSServer": "GH",
+      "Type": "Python",
+      "FunctionName": "get_geo_data_and_stations"
+    },
+    "ProcessData": {
+      "Arguments": {
+        "folder_name": "WeatherGeographicPlot"
+      },
+      "InvokeNext": [
+        "PlotData"
+      ],
+      "FaaSServer": "GH",
+      "Type": "Python",
+      "FunctionName": "process_ghcnd_data"
+    },
+    "PlotData": {
+      "Arguments": {
+        "folder_name": "WeatherGeographicPlot",
+        "county_name": "Benton"
+      },
+      "InvokeNext": [],
+      "FaaSServer": "GH",
+      "Type": "Python",
+      "FunctionName": "plot_county_weekly_temperature"
+    }
+  },
+  "ComputeServers": {
+    "GH": {
+      "FaaSType": "GitHubActions",
+      "UseSecretStore": true,
+      "ActionRepoName": "FaaSr-workflow",
+      "Branch": "main",
+      "UserName": "YOUR_USERNAME"
+    }
+  },
+  "DataStores": {
+    "S3": {
+      "Writable": "TRUE",
+      "Endpoint": "https://play.mini.io",
+      "Bucket": "faasr",
+      "Region": "us-east-1"
+    }
+  },
+  "ActionContainers": {
+    "GetData": "ghcr.io/faasr/github-actions-python:latest",
+    "ProcessData": "ghcr.io/faasr/github-actions-python:latest",
+    "PlotData": "ghcr.io/faasr/github-actions-python:latest"
+  },
+  "FunctionInvoke": "GetData",
+  "DefaultDataStore": "S3",
+  "FunctionGitRepo": {
+    "get_geo_data_and_stations": "FaaSr/FaaSr-Functions/WeatherGeographicPlot/python",
+    "process_ghcnd_data": "FaaSr/FaaSr-Functions/WeatherGeographicPlot/python",
+    "plot_county_weekly_temperature": "FaaSr/FaaSr-Functions/WeatherGeographicPlot/python"
+  },
+  "PyPIPackageDownloads": {
+    "get_geo_data_and_stations": [
+      "geopandas"
+    ],
+    "process_ghcnd_data": [
+      "geopandas"
+    ],
+    "plot_county_weekly_temperature": [
+      "geopandas",
+      "matplotlib",
+      "numpy",
+      "scipy"
+    ]
+  },
+  "FaaSrLog": "FaaSrLog",
+  "LoggingDataStore": "S3",
+  "WorkflowName": "WeatherGeographicPlot",
+  "InvocationIDFromDate": "%Y-%m-%d-%H-%M-%S"
+}
