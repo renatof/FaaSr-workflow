@@ -47,7 +47,7 @@
   "DataStores": {
     "S3": {
       "Writable": "TRUE",
-      "Endpoint": "https://play.mini.io",
+      "Endpoint": "https://play.min.io",
       "Bucket": "faasr",
       "Region": "us-east-1"
     }
