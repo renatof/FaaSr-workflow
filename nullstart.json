@@ -58,10 +58,9 @@
   "FunctionInvoke": "nullstart",
   "DefaultDataStore": "S3",
   "FunctionGitRepo": {
-    "create_sample_data": "FaaSr/FaaSr-Functions",
-    "compute_sum": "FaaSr/FaaSr-Functions",
-    "undefined": "FaaSr/FaaSr-Functions",
-    "nullstart": "FaaSr/FaaSr-Functions"
+    "create_sample_data": "FaaSr/FaaSr-Functions/tutorial",
+    "compute_sum": "FaaSr/FaaSr-Functions/tutorial",
+    "nullstart": "FaaSr/FaaSr-Functions/nullstart"
   },
   "LoggingDataStore": "S3",
   "FaaSrLog": "FaaSrLog",
