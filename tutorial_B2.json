@@ -37,7 +37,7 @@
   },
   "DataStores": {
     "B2": {
-      "Endpoint": "backblazeb2.com",
+      "Endpoint": "https://s3.us-east-005.backblazeb2.com",
       "Bucket": "faasr0001",
       "Region": "us-east-005",
       "Writable": "TRUE"
