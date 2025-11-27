@@ -39,7 +39,6 @@
     "B2": {
       "Endpoint": "s3.us-east-005.backblazeb2.com",
       "Bucket": "faasr0001",
-      "Region": "us-east-005",
       "Writable": "TRUE"
     }
   },
