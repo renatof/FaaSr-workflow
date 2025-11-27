@@ -44,8 +44,8 @@
     }
   },
   "ActionContainers": {
-    "start": "ghcr.io/faasr/github-actions-r",
-    "sum": "ghcr.io/faasr/github-actions-r"
+    "start": "ghcr.io/faasr/github-actions-r:latest",
+    "sum": "ghcr.io/faasr/github-actions-r:latest"
   },
   "FunctionInvoke": "start",
   "DefaultDataStore": "B2",
