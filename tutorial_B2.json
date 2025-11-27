@@ -1,0 +1,59 @@
+{
+  "ActionList": {
+    "start": {
+      "Arguments": {
+        "folder": "tutorialB2",
+        "output1": "sample1.csv",
+        "output2": "sample2.csv"
+      },
+      "InvokeNext": [
+        "sum"
+      ],
+      "FaaSServer": "GH",
+      "Type": "R",
+      "FunctionName": "create_sample_data"
+    },
+    "sum": {
+      "FunctionName": "compute_sum",
+      "FaaSServer": "GH",
+      "Type": "R",
+      "Arguments": {
+        "folder": "tutorialB2",
+        "input2": "sample2.csv",
+        "input1": "sample1.csv",
+        "output": "sum.csv"
+      },
+      "InvokeNext": []
+    }
+  },
+  "ComputeServers": {
+    "GH": {
+      "FaaSType": "GitHubActions",
+      "UserName": "renatof",
+      "UseSecretStore": true,
+      "ActionRepoName": "FaaSr-workflow",
+      "Branch": "main"
+    }
+  },
+  "DataStores": {
+    "B2": {
+      "Endpoint": "s3.us-east-005.backblazeb2.com",
+      "Bucket": "faasr0001",
+      "Region": "us-east-005",
+      "Writable": "TRUE"
+    }
+  },
+  "ActionContainers": {
+    "start": "ghcr.io/faasr/github-actions-r",
+    "sum": "ghcr.io/faasr/github-actions-r"
+  },
+  "FunctionInvoke": "start",
+  "DefaultDataStore": "B2",
+  "FunctionGitRepo": {
+    "create_sample_data": "FaaSr/FaaSr-tutorial",
+    "compute_sum": "FaaSr/FaaSr-tutorial"
+  },
+  "LoggingDataStore": "B2",
+  "FaaSrLog": "FaaSrLog",
+  "WorkflowName": "tutorialB2"
+}
