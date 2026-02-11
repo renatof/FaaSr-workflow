@@ -1,0 +1,124 @@
+{
+  "ActionList": {
+    "GetData": {
+      "Arguments": {
+        "folder_name": "WeatherVisualization",
+        "output_name": "WeatherData.csv",
+        "station_id": "USC00351862"
+      },
+      "InvokeNext": [
+        "ProcessPrecipitation",
+        "ProcessTemperatureMin",
+        "ProcessTemperatureMax"
+      ],
+      "FaaSServer": "GH",
+      "Type": "Python",
+      "FunctionName": "get_ghcnd_data"
+    },
+    "ProcessPrecipitation": {
+      "Arguments": {
+        "folder_name": "WeatherVisualization",
+        "input_name": "WeatherData.csv",
+        "output_name": "PrecipitationData.csv",
+        "column_name": "PRCP",
+        "start": "2025-01-01",
+        "end": "2025-03-01"
+      },
+      "InvokeNext": [
+        "PlotData"
+      ],
+      "FaaSServer": "GH",
+      "Type": "Python",
+      "FunctionName": "compare_to_yearly_average"
+    },
+    "ProcessTemperatureMin": {
+      "FunctionName": "compare_to_yearly_average",
+      "FaaSServer": "GH",
+      "Arguments": {
+        "folder_name": "WeatherVisualization",
+        "input_name": "WeatherData.csv",
+        "output_name": "TemperatureMinData.csv",
+        "column_name": "TMIN",
+        "start": "2025-01-01",
+        "end": "2025-03-01"
+      },
+      "InvokeNext": [
+        "PlotData"
+      ],
+      "Type": "Python"
+    },
+    "ProcessTemperatureMax": {
+      "FunctionName": "compare_to_yearly_average",
+      "FaaSServer": "GH",
+      "Arguments": {
+        "folder_name": "WeatherVisualization",
+        "input_name": "WeatherData.csv",
+        "output_name": "TemperatureMaxData.csv",
+        "column_name": "TMAX",
+        "start": "2025-01-01",
+        "end": "2025-03-01"
+      },
+      "InvokeNext": [
+        "PlotData"
+      ],
+      "Type": "Python"
+    },
+    "PlotData": {
+      "Arguments": {
+        "folder_name": "WeatherVisualization",
+        "input_precip_name": "PrecipitationData.csv",
+        "input_min_temp_name": "TemperatureMinData.csv",
+        "input_max_temp_name": "TemperatureMaxData.csv",
+        "location": "Corvallis,OR",
+        "output_name": "WeatherComparison.png"
+      },
+      "InvokeNext": [],
+      "FaaSServer": "GH",
+      "Type": "Python",
+      "FunctionName": "plot_weather_comparison"
+    }
+  },
+  "ComputeServers": {
+    "GH": {
+      "FaaSType": "GitHubActions",
+      "UseSecretStore": true,
+      "ActionRepoName": "FaaSr-workflow",
+      "Branch": "main",
+      "UserName": "renatof"
+    }
+  },
+  "DataStores": {
+    "B2": {
+      "Endpoint": "https://s3.us-east-005.backblazeb2.com",
+      "Bucket": "faasr0001",
+      "Region": "us-east-005",
+      "Writable": "TRUE"
+    }
+  },
+  "ActionContainers": {
+    "GetData": "ghcr.io/faasr/github-actions-python:latest",
+    "ProcessPrecipitation": "ghcr.io/faasr/github-actions-python:latest",
+    "ProcessTemperatureMin": "ghcr.io/faasr/github-actions-python:latest",
+    "PlotData": "ghcr.io/faasr/github-actions-python:latest",
+    "ProcessTemperatureMax": "ghcr.io/faasr/github-actions-python:latest"
+  },
+  "FunctionInvoke": "GetData",
+  "DefaultDataStore": "B2",
+  "FunctionGitRepo": {
+    "get_ghcnd_data": "FaaSr/FaaSr-Functions/WeatherVisualization/python",
+    "compare_to_yearly_average": "FaaSr/FaaSr-Functions/WeatherVisualization/python",
+    "plot_weather_comparison": "FaaSr/FaaSr-Functions/WeatherVisualization/python"
+  },
+  "PyPIPackageDownloads": {
+    "compare_to_yearly_average": [
+      "pandas"
+    ],
+    "plot_weather_comparison": [
+      "pandas",
+      "matplotlib"
+    ]
+  },
+  "FaaSrLog": "FaaSrLog",
+  "LoggingDataStore": "B2",
+  "WorkflowName": "WeatherVisualizationB2"
+}
