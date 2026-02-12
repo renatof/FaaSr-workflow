@@ -1,0 +1,50 @@
+{
+  "ActionList": {
+    "NullStart": {
+      "Arguments": {},
+      "InvokeNext": ["RunGLM"],
+      "FaaSServer": "GH",
+      "Type": "R",
+      "FunctionName": "null_start"
+    },
+    "RunGLM": {
+      "Arguments": {
+        "folder": "GLM"
+      },
+      "InvokeNext": [],
+      "FaaSServer": "GH",
+      "Type": "R",
+      "FunctionName": "run_glm_tutorial"
+    }
+  },
+  "ComputeServers": {
+    "GH": {
+      "FaaSType": "GitHubActions",
+      "UseSecretStore": true,
+      "ActionRepoName": "FaaSr-workflow",
+      "Branch": "main",
+      "UserName": "renatof"
+    }
+  },
+  "DataStores": {
+    "B2": {
+      "Endpoint": "https://s3.us-east-005.backblazeb2.com",
+      "Bucket": "faasr0001",
+      "Region": "us-east-005",
+      "Writable": "TRUE"
+    }
+  },
+  "ActionContainers": {
+    "NullStart": "ghcr.io/faasr/github-actions-r:latest",
+    "RunGLM": "jessestover/faasr-glm:latest"
+  },
+  "FunctionInvoke": "NullStart",
+  "DefaultDataStore": "B2",
+  "FunctionGitRepo": {
+    "null_start": "jessestover/FaaSr-GLM/FaaSr",
+    "run_glm_tutorial": "jessestover/FaaSr-GLM/FaaSr"
+  },
+  "LoggingDataStore": "B2",
+  "FaaSrLog": "FaaSrLog",
+  "WorkflowName": "GLMTutorialWorkflow"
+}
