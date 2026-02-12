@@ -41,8 +41,8 @@
   "FunctionInvoke": "NullStart",
   "DefaultDataStore": "B2",
   "FunctionGitRepo": {
-    "null_start": "jessestover/FaaSr-GLM/FaaSr",
-    "run_glm_tutorial": "jessestover/FaaSr-GLM/FaaSr"
+    "null_start": "JStover95/FaaSr-GLM/FaaSr",
+    "run_glm_tutorial": "JStover95/FaaSr-GLM/FaaSr"
   },
   "LoggingDataStore": "B2",
   "FaaSrLog": "FaaSrLog",
