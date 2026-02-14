@@ -39,8 +39,8 @@
     }
   },
   "ActionContainers": {
-    "start": "145342739029.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-r:latest",
-    "sum": "145342739029.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-r:latest"
+    "start": "145342739029.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-r:2.0.4",
+    "sum": "145342739029.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-r:2.0.4"
   },
   "FunctionInvoke": "start",
   "DefaultDataStore": "S3",
