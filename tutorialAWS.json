@@ -9,7 +9,7 @@
       "InvokeNext": [
         "sum"
       ],
-      "FaaSServer": "AWS",
+      "FaaSServer": "GH",
       "Type": "R",
       "FunctionName": "create_sample_data"
     },
@@ -30,6 +30,13 @@
         "AWS": {
             "FaaSType": "Lambda",
             "Region": "us-east-1"
+        },
+        "GH": {
+            "FaaSType": "GitHubActions",
+            "UserName": "renatof",
+            "UseSecretStore": true,
+            "ActionRepoName": "FaaSr-workflow",
+            "Branch": "main"
         }
   },  "DataStores": {
     "S3": {
@@ -39,7 +46,7 @@
     }
   },
   "ActionContainers": {
-    "start": "145342739029.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-r:2.0.4",
+    "start": "ghcr.io/faasr/github-actions-r:2.0.4",
     "sum": "145342739029.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-r:2.0.4"
   },
   "FunctionInvoke": "start",
