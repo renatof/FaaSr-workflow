@@ -13,7 +13,7 @@ on:
 jobs:
     run_docker_image:
         runs-on: ubuntu-latest
-        container: ghcr.io/faasr/github-actions-python:latest
+        container: ghcr.io/faasr/github-actions-python:2.0.4
 
         env:
             GH_PAT: ${{ secrets.GH_PAT}}
