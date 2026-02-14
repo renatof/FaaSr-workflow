@@ -96,11 +96,11 @@
     }
   },
   "ActionContainers": {
-    "GetData": "ghcr.io/faasr/github-actions-python:latest",
-    "ProcessPrecipitation": "ghcr.io/faasr/github-actions-python:latest",
-    "ProcessTemperatureMin": "ghcr.io/faasr/github-actions-python:latest",
-    "PlotData": "ghcr.io/faasr/github-actions-python:latest",
-    "ProcessTemperatureMax": "ghcr.io/faasr/github-actions-python:latest"
+    "GetData": "ghcr.io/faasr/github-actions-python:2.0.4",
+    "ProcessPrecipitation": "ghcr.io/faasr/github-actions-python:2.0.4",
+    "ProcessTemperatureMin": "ghcr.io/faasr/github-actions-python:2.0.4",
+    "PlotData": "ghcr.io/faasr/github-actions-python:2.0.4",
+    "ProcessTemperatureMax": "ghcr.io/faasr/github-actions-python:2.0.4"
   },
   "FunctionInvoke": "GetData",
   "DefaultDataStore": "B2",
