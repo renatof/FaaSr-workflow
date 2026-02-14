@@ -50,8 +50,8 @@
     }
   },
   "ActionContainers": {
-    "start": "ghcr.io/faasr/github-actions-r:latest",
-    "sum": "faasr/openwhisk-python:latest"
+    "start": "ghcr.io/faasr/github-actions-r:2.0.4",
+    "sum": "faasr/openwhisk-python:2.0.4"
   },
   "FunctionInvoke": "start",
   "DefaultDataStore": "S3",
