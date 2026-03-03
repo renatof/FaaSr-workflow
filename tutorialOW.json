@@ -31,7 +31,7 @@
       "FaaSType": "OpenWhisk",
       "Namespace": "guest",
       "UseSecretStore": false,
-      "Endpoint": "ow.faasr.io:31002",
+      "Endpoint": "dev.faasr.io:31002",
       "API.key": "filler:filler"
     },
     "GH": {
@@ -50,8 +50,8 @@
     }
   },
   "ActionContainers": {
-    "start": "ghcr.io/faasr/github-actions-r:2.0.4",
-    "sum": "faasr/openwhisk-python:2.0.4"
+    "start": "ghcr.io/faasr/github-actions-r:latest",
+    "sum": "faasr/openwhisk-python:latest"
   },
   "FunctionInvoke": "start",
   "DefaultDataStore": "S3",
