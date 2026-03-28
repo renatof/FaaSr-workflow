@@ -21,8 +21,8 @@
         "input_name": "WeatherData.csv",
         "output_name": "PrecipitationData.csv",
         "column_name": "PRCP",
-        "start": "2026-01-01",
-        "end": "2026-03-01"
+        "start": "2025-01-01",
+        "end": "2025-03-01"
       },
       "InvokeNext": [
         "PlotData"
@@ -39,8 +39,8 @@
         "input_name": "WeatherData.csv",
         "output_name": "TemperatureMinData.csv",
         "column_name": "TMIN",
-        "start": "2026-01-01",
-        "end": "2026-03-01"
+        "start": "2025-01-01",
+        "end": "2025-03-01"
       },
       "InvokeNext": [
         "PlotData"
@@ -55,8 +55,8 @@
         "input_name": "WeatherData.csv",
         "output_name": "TemperatureMaxData.csv",
         "column_name": "TMAX",
-        "start": "2026-01-01",
-        "end": "2026-03-01"
+        "start": "2025-01-01",
+        "end": "2025-03-01"
       },
       "InvokeNext": [
         "PlotData"
@@ -83,7 +83,7 @@
       "FaaSType": "OpenWhisk",
       "Namespace": "guest",
       "UseSecretStore": false,
-      "Endpoint": "71.193.128.80:31002",
+      "Endpoint": "dev.faasr.io:31002",
       "API.key": "filler:filler"
     },
     "GH": {
