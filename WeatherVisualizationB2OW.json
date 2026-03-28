@@ -83,7 +83,7 @@
       "FaaSType": "OpenWhisk",
       "Namespace": "guest",
       "UseSecretStore": false,
-      "Endpoint": "dev.faasr.io:31002",
+      "Endpoint": "71.193.128.80:31002",
       "API.key": "filler:filler"
     },
     "GH": {
