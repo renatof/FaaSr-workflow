@@ -101,11 +101,11 @@
     }
   },
   "ActionContainers": {
-    "GetData": "faasr/gcp-python:latest",
-    "ProcessPrecipitation": "faasr/gcp-python:latest",
-    "ProcessTemperatureMin": "faasr/gcp-python:latest",
-    "PlotData": "faasr/gcp-python:latest",
-    "ProcessTemperatureMax": "faasr/gcp-python:latest"
+    "getdata": "faasr/gcp-python:latest",
+    "processprecipitation": "faasr/gcp-python:latest",
+    "processtemperaturemin": "faasr/gcp-python:latest",
+    "plotdata": "faasr/gcp-python:latest",
+    "processtemperaturemax": "faasr/gcp-python:latest"
   },
   "FunctionInvoke": "getdata",
   "DefaultDataStore": "B2",
