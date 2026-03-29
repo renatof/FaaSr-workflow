@@ -1,21 +1,21 @@
 {
   "ActionList": {
-    "GetData": {
+    "getdata": {
       "Arguments": {
         "folder_name": "WeatherVisualization",
         "output_name": "WeatherData.csv",
         "station_id": "USC00351862"
       },
       "InvokeNext": [
-        "ProcessPrecipitation",
-        "ProcessTemperatureMin",
-        "ProcessTemperatureMax"
+        "processprecipitation",
+        "processtemperatureMin",
+        "processtemperatureMax"
       ],
       "FaaSServer": "GCP",
       "Type": "Python",
       "FunctionName": "get_ghcnd_data"
     },
-    "ProcessPrecipitation": {
+    "processprecipitation": {
       "Arguments": {
         "folder_name": "WeatherVisualization",
         "input_name": "WeatherData.csv",
@@ -25,13 +25,13 @@
         "end": "2025-03-01"
       },
       "InvokeNext": [
-        "PlotData"
+        "plotdata"
       ],
       "FaaSServer": "GCP",
       "Type": "Python",
       "FunctionName": "compare_to_yearly_average"
     },
-    "ProcessTemperatureMin": {
+    "processtemperaturemin": {
       "FunctionName": "compare_to_yearly_average",
       "FaaSServer": "GCP",
       "Arguments": {
@@ -43,11 +43,11 @@
         "end": "2025-03-01"
       },
       "InvokeNext": [
-        "PlotData"
+        "plotdata"
       ],
       "Type": "Python"
     },
-    "ProcessTemperatureMax": {
+    "processtemperaturemax": {
       "FunctionName": "compare_to_yearly_average",
       "FaaSServer": "GCP",
       "Arguments": {
@@ -59,11 +59,11 @@
         "end": "2025-03-01"
       },
       "InvokeNext": [
-        "PlotData"
+        "plotdata"
       ],
       "Type": "Python"
     },
-    "PlotData": {
+    "plotdata": {
       "Arguments": {
         "folder_name": "WeatherVisualization",
         "input_precip_name": "PrecipitationData.csv",
@@ -107,7 +107,7 @@
     "PlotData": "faasr/gcp-python:latest",
     "ProcessTemperatureMax": "faasr/gcp-python:latest"
   },
-  "FunctionInvoke": "GetData",
+  "FunctionInvoke": "getdata",
   "DefaultDataStore": "B2",
   "FunctionGitRepo": {
     "get_ghcnd_data": "FaaSr/FaaSr-Functions/WeatherVisualization/python",
