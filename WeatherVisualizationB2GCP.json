@@ -8,8 +8,8 @@
       },
       "InvokeNext": [
         "processprecipitation",
-        "processtemperatureMin",
-        "processtemperatureMax"
+        "processtemperaturemin",
+        "processtemperaturemax"
       ],
       "FaaSServer": "GH",
       "Type": "Python",
