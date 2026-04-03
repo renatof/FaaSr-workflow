@@ -29,6 +29,7 @@
   "ComputeServers": {
         "AWS": {
             "FaaSType": "Lambda",
+            "UseSecretStore": false,
             "Region": "us-east-1"
         },
         "GH": {
@@ -46,8 +47,8 @@
     }
   },
   "ActionContainers": {
-    "start": "ghcr.io/faasr/github-actions-r:latest",
-    "sum": "145342739029.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-r:2.0.4"
+    "start": "ghcr.io/faasr/github-actions-r:2.0.5",
+    "sum": "145342739029.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-r:2.0.5"
   },
   "FunctionInvoke": "start",
   "DefaultDataStore": "S3",
