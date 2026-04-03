@@ -101,7 +101,7 @@
     }
   },
   "ActionContainers": {
-    "getdata": "ghcr.io/faasr/github-actions-python:latest",
+    "getdata": "ghcr.io/faasr/github-actions-python:2.0.5",
     "processprecipitation": "145342739029.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-python:2.0.5",
     "processtemperaturemin": "145342739029.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-python:2.0.5",
     "plotdata": "145342739029.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-python:2.0.5",
