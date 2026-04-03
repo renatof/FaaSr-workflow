@@ -11,7 +11,7 @@
         "processtemperatureMin",
         "processtemperatureMax"
       ],
-      "FaaSServer": "GCP",
+      "FaaSServer": "GH",
       "Type": "Python",
       "FunctionName": "get_ghcnd_data"
     },
@@ -81,6 +81,7 @@
   "ComputeServers": {
     "GCP": {
             "FaaSType": "GoogleCloud",
+            "UseSecretStore": false,
             "Namespace": "nsf-20210119-renatof-420467",
             "Region": "us-central1",
             "Endpoint": "https://run.googleapis.com/v2/projects/",
@@ -90,7 +91,14 @@
             "CPUsPerTask": 1,
             "Memory": 4096,
             "TimeLimit": 3600
-        }
+        },
+    "GH": {
+      "FaaSType": "GitHubActions",
+      "UseSecretStore": true,
+      "ActionRepoName": "FaaSr-workflow",
+      "Branch": "main",
+      "UserName": "renatof"
+    }
   },
   "DataStores": {
     "B2": {
@@ -101,7 +109,7 @@
     }
   },
   "ActionContainers": {
-    "getdata": "faasr/gcp-python:latest",
+    "getdata": "ghcr.io/faasr/github-actions-python:latest",
     "processprecipitation": "faasr/gcp-python:latest",
     "processtemperaturemin": "faasr/gcp-python:latest",
     "plotdata": "faasr/gcp-python:latest",
