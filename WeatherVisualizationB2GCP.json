@@ -85,7 +85,6 @@
             "Namespace": "nsf-20210119-renatof-420467",
             "Region": "us-central1",
             "Endpoint": "https://run.googleapis.com/v2/projects/",
-            "UseSecretStore": true,
             "ClientEmail": "653510801516-compute@developer.gserviceaccount.com",
             "TokenUri": "https://oauth2.googleapis.com/token",
             "CPUsPerTask": 1,
