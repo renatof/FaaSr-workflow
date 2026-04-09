@@ -17,8 +17,8 @@ jobs:
 
         env:
             GH_PAT: ${{ secrets.GH_PAT}}
-            B2_AccessKey: ${{ secrets.B2_AccessKey}}
-            B2_SecretKey: ${{ secrets.B2_SecretKey}}
+            SMARTTAPS3_AccessKey: ${{ secrets.SMARTTAPS3_AccessKey}}
+            SMARTTAPS3_SecretKey: ${{ secrets.SMARTTAPS3_SecretKey}}
             OVERWRITTEN: ${{ github.event.inputs.OVERWRITTEN }}
             PAYLOAD_URL: ${{ github.event.inputs.PAYLOAD_URL }}
 
