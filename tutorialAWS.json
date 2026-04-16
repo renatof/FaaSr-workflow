@@ -30,7 +30,7 @@
         "AWS": {
             "FaaSType": "Lambda",
             "Region": "us-east-1",
-            "UseSecretStore": true,
+            "UseSecretStore": true
         },
         "GH": {
             "FaaSType": "GitHubActions",
