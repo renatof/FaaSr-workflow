@@ -104,10 +104,10 @@
   },
   "ActionContainers": {
     "GetData": "ghcr.io/faasr/github-actions-python:latest",
-    "ProcessPrecipitation": "faasr/openwhisk-python-arm:2.0.4",
-    "ProcessTemperatureMin": "faasr/openwhisk-python-arm:2.0.4",
-    "PlotData": "faasr/openwhisk-python-arm:2.0.4",
-    "ProcessTemperatureMax": "faasr/openwhisk-python-arm:2.0.4"
+    "ProcessPrecipitation": "faasr/openwhisk-python-arm:2.0.5",
+    "ProcessTemperatureMin": "faasr/openwhisk-python-arm:2.0.5",
+    "PlotData": "faasr/openwhisk-python-arm:2.0.5",
+    "ProcessTemperatureMax": "faasr/openwhisk-python-arm:2.0.5"
   },
   "FunctionInvoke": "GetData",
   "DefaultDataStore": "B2",
