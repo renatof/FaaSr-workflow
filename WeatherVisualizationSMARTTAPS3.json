@@ -89,7 +89,7 @@
   },
   "DataStores": {
     "SMARTTAPS3": {
-      "Bucket": "faasr-bucket-0007",
+      "Bucket": "faasr-bucket-smarttap-private",
       "Region": "us-east-1",
       "Writable": "TRUE"
     }
