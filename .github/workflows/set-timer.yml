@@ -1,0 +1,69 @@
+name: '  (FAASR SET TIMER)'
+
+on:
+  workflow_dispatch:
+    inputs:
+      workflow_file:
+        description: 'Workflow JSON file name'
+        required: true
+        type: string
+      cron:
+        description: "Cron expression (e.g. '*/5 * * * *'). Leave empty if unsetting."
+        required: false
+        type: string
+      target:
+        description: 'Action name to schedule (defaults to FunctionInvoke)'
+        required: false
+        type: string
+      unset:
+        description: 'Unset (remove) the timer instead of setting it'
+        type: boolean
+        default: false
+jobs:
+  set_timer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install boto3 pyyaml PyGithub requests FaaSr_py
+
+      - name: Install OpenWhisk CLI
+        run: |
+          wget -q https://github.com/apache/openwhisk-cli/releases/download/1.2.0/OpenWhisk_CLI-1.2.0-linux-amd64.tgz
+          tar -xzf OpenWhisk_CLI-1.2.0-linux-amd64.tgz
+          sudo mv wsk /usr/local/bin/wsk
+          sudo chmod +x /usr/local/bin/wsk
+          wsk --help
+
+      - name: Set / Unset timer
+        env:
+          OW_APIkey: ${{ secrets.OW_APIkey }}
+          AWS_AccessKey: ${{ secrets.AWS_AccessKey }}
+          AWS_SecretKey: ${{ secrets.AWS_SecretKey }}
+          GCP_SecretKey: ${{ secrets.GCP_SecretKey }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          WORKFLOW_FILE: ${{ github.event.inputs.workflow_file }}
+          CRON_EXPR: ${{ github.event.inputs.cron }}
+          TARGET_ACTION: ${{ github.event.inputs.target }}
+          UNSET_TIMER: ${{ github.event.inputs.unset }}
+        run: |
+          args=(--workflow-file "$WORKFLOW_FILE")
+          if [ "$UNSET_TIMER" = "true" ]; then
+            args+=(--unset)
+          fi
+          if [ -n "$CRON_EXPR" ]; then
+            args+=(--cron "$CRON_EXPR")
+          fi
+          if [ -n "$TARGET_ACTION" ]; then
+            args+=(--target "$TARGET_ACTION")
+          fi
+          python scripts/set_timer.py "${args[@]}"
